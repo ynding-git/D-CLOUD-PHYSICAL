@@ -1,12 +1,14 @@
 package com.ynding.cloud.person.entity;
 
-import lombok.Builder;
-import lombok.Data;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
 import java.io.Serializable;
+
+import javax.persistence.Id;
+
+import lombok.Builder;
+import lombok.Data;
 
 /**
  * @author dyn
@@ -16,6 +18,7 @@ import java.io.Serializable;
 @Builder
 @Document(collection = "t_user")
 public class User implements Serializable {
+    private static final long serialVersionUID = -1961860902278915403L;
     @Id
     private Long id;
 

@@ -1,12 +1,19 @@
 package com.ynding.cloud.book.entity;
 
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.data.rest.core.annotation.RestResource;
-
-import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * @author ynding
@@ -19,7 +26,9 @@ import java.io.Serializable;
 @RestResource(rel = "books", path = "books")
 @Table(name = "t_book")
 public class Book implements Serializable {
-	
+
+	private static final long serialVersionUID = -8899520163983685604L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@ApiModelProperty(name = "id", notes = "ID", dataType = "long")
