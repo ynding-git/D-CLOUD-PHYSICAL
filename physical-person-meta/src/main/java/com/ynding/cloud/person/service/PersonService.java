@@ -1,17 +1,19 @@
 package com.ynding.cloud.person.service;
 
-import com.ynding.cloud.common.model.bo.GQuery;
+import com.ynding.cloud.common.model.bo.Query;
 import com.ynding.cloud.common.model.vo.PersonVO;
 import com.ynding.cloud.person.data.PersonRepository;
 import com.ynding.cloud.person.entity.Person;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.criteria.Predicate;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.criteria.Predicate;
 
 /**
  * @author ynding
@@ -32,7 +34,7 @@ public class PersonService {
         return personRepository.save(person);
     }
 
-    public List<PersonVO> findList(GQuery query) {
+    public List<PersonVO> findList(Query query) {
         List<Person> persons = personRepository.findAll(condition(query));
         List<PersonVO> personVOS = new ArrayList<>();
         persons.forEach(e -> {
@@ -49,7 +51,7 @@ public class PersonService {
      * @param query
      * @return
      */
-    private Specification<Person> condition(GQuery query) {
+    private Specification<Person> condition(Query query) {
 
         return (root, cq, cb) -> {
             Predicate predicate = cb.conjunction();

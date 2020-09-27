@@ -1,10 +1,11 @@
 package com.ynding.cloud.book.service;
 
 import com.ynding.cloud.book.data.BookRepository;
-import com.ynding.cloud.common.model.bo.GQuery;
 import com.ynding.cloud.book.entity.Book;
+import com.ynding.cloud.common.model.bo.Query;
 import com.ynding.cloud.common.model.bo.ResponsePageBean;
 import com.ynding.cloud.common.model.vo.BookVO;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,12 +15,13 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -53,7 +55,7 @@ public class BookService {
      * @param query
      * @return
      */
-    public List<BookVO> findList(GQuery query) {
+    public List<BookVO> findList(Query query) {
         List<Book> books = bookRepository.findAll(condition(query));
         List<BookVO> bookVOS = new ArrayList<>();
         books.forEach(e -> {
@@ -70,7 +72,7 @@ public class BookService {
      * @param query
      * @return
      */
-    public ResponsePageBean pageList(GQuery query) {
+    public ResponsePageBean pageList(Query query) {
         Pageable pageable =  PageRequest.of(query.getOffset(), query.getLimit(), Sort.Direction.DESC, "id");
 
         Page<Book> page = bookRepository.findAll(condition(query),pageable);
@@ -92,7 +94,7 @@ public class BookService {
      * @param query
      * @return
      */
-    private Specification<Book> condition(GQuery query) {
+    private Specification<Book> condition(Query query) {
 
         return (Root<Book> root, CriteriaQuery<?> cq, CriteriaBuilder cb) -> {
             Predicate predicate = cb.conjunction();

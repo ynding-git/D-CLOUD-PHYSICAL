@@ -3,24 +3,30 @@ package com.ynding.cloud.book.controller;
 import com.github.tobato.fastdfs.domain.fdfs.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
 import com.ynding.cloud.book.service.BookService;
-import com.ynding.cloud.common.model.bo.GQuery;
+import com.ynding.cloud.common.model.bo.Query;
 import com.ynding.cloud.common.model.bo.ResponseBean;
-import com.ynding.cloud.book.entity.Book;
 import com.ynding.cloud.common.model.bo.ResponsePageBean;
 import com.ynding.cloud.common.model.vo.BookVO;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import lombok.extern.slf4j.Slf4j;
+
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author ynding
@@ -55,7 +61,7 @@ public class BookController {
 	@ApiOperation(value = "查询列表", produces = "application/json")
 	public ResponseBean findList(@RequestParam Map<String, Object> params){
 
-	    GQuery query = new GQuery(params);
+	    Query query = new Query(params);
 	    List<BookVO> books = bookService.findList(query);
 
 		return ResponseBean.ok(books);
@@ -64,7 +70,7 @@ public class BookController {
 	@GetMapping("/page")
 	@ApiOperation(value = "分页查询", produces = "application/json")
 	public ResponsePageBean findPage(@RequestParam Map<String, Object> params){
-		GQuery query = new GQuery(params);
+		Query query = new Query(params);
 		return bookService.pageList(query);
 	}
 
