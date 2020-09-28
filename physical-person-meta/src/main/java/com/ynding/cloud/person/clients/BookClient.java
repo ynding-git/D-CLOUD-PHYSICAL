@@ -1,6 +1,6 @@
 package com.ynding.cloud.person.clients;
 
-import com.ynding.cloud.common.model.bo.CloudServiceName;
+import com.ynding.cloud.common.model.bo.CloudServiceInfo;
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
 import com.ynding.cloud.person.clients.fallback.BookClientImpl;
@@ -16,7 +16,7 @@ import java.util.Map;
 /**
  * 调用book服务的接口
  */
-@FeignClient(value = CloudServiceName.PHYSICAL_BOOK_META, fallback = BookClientImpl.class)
+@FeignClient(value = CloudServiceInfo.PHYSICAL_BOOK_META, fallback = BookClientImpl.class)
 @Component
 public interface BookClient {
 

@@ -1,8 +1,8 @@
 package com.ynding.cloud.person.service;
 
-import com.ynding.cloud.common.model.bo.GQuery;
-import com.ynding.cloud.person.entity.User;
 import com.ynding.cloud.person.data.UserRepository;
+import com.ynding.cloud.person.entity.User;
+
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -35,7 +35,7 @@ public class UserService {
         return userRepository.save(user);
     }
 
-    public List<User> findList(GQuery query) {
+    public List<User> findList(com.ynding.cloud.common.model.bo.Query query) {
         List<User> users = mongoTemplate.find(condition(query),User.class);
         return users;
     }
@@ -45,7 +45,7 @@ public class UserService {
      * @param gquery
      * @return
      */
-    private Query condition(GQuery gquery) {
+    private Query condition(com.ynding.cloud.common.model.bo.Query gquery) {
         Query query = new Query();
         if (gquery.get("age") != null){
             query.addCriteria(Criteria.where("age").is(gquery.get("age")));
