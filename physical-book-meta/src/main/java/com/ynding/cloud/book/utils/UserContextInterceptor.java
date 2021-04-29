@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.book.utils;
 
 import org.slf4j.Logger;
@@ -10,9 +11,11 @@ import org.springframework.http.client.ClientHttpResponse;
 
 import java.io.IOException;
 
+*/
 /**
  * @author ynding
- */
+ *//*
+
 public class UserContextInterceptor implements ClientHttpRequestInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(UserContextInterceptor.class);
     @Override
@@ -26,4 +29,4 @@ public class UserContextInterceptor implements ClientHttpRequestInterceptor {
 
         return execution.execute(request, body);
     }
-}
+}*/

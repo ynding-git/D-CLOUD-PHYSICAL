@@ -12,7 +12,6 @@ spring:
       #允许对象忽略json中不存在的属性
       fail_on_unknown_properties: false
   zipkin:
-    base-url: http://101.37.202.3:9411
     sender:
       type: rabbit
   sleuth:
@@ -34,7 +33,14 @@ spring:
         show_sql: true
         use_sql_comments: true
         format_sql: true
-
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-uri: http://${AUTHENTICATION_HOST:localhost}:${AUTHENTICATION_PORT:10402}/oauth/token_key #获取解析jwt，验签名key的路径
+    client:
+      client-id: personService #获取验签key需要身份认证，这里是admin的clientId
+      client-secret: 123456 #获取验签key需要身份认证，这里是网关的secret
 #这样才能访问 /actuator/bus-refresh，暴露所有端点
 management:
   endpoints:

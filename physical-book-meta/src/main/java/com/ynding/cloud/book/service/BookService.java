@@ -6,6 +6,7 @@ import com.ynding.cloud.common.model.bo.Query;
 import com.ynding.cloud.common.model.bo.ResponsePageBean;
 import com.ynding.cloud.common.model.vo.BookVO;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,15 +24,14 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+/**
+ * @author Administrator
+ */
 @Service
-@Transactional(readOnly = true)
+@RequiredArgsConstructor
 public class BookService {
 
     private final BookRepository bookRepository;
-
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
 
     public Book findByTitle(String title) {
         return bookRepository.findByTitle(title);

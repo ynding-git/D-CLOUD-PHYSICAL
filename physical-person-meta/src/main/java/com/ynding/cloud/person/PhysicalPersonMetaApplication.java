@@ -1,6 +1,5 @@
 package com.ynding.cloud.person;
 
-import com.ynding.cloud.person.utils.UserContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -18,29 +17,32 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableHystrix
 @EnableMongoAuditing
 @EnableTransactionManagement
-@EntityScan("com.ynding.cloud.person.entity")
+//@EntityScan("com.ynding.cloud.person.entity")
 //@EnableMongoRepositories(basePackages="com.ynding.cloud.person.data")
 public class PhysicalPersonMetaApplication {
 
-    @LoadBalanced
+    /*@LoadBalanced
     @Bean
     public RestTemplate getRestTemplate() {
         RestTemplate template = new RestTemplate();
-        List interceptors = template.getInterceptors();
+        *//*List interceptors = template.getInterceptors();
         if (interceptors == null) {
             template.setInterceptors(Collections.singletonList(new UserContextInterceptor()));
         } else {
             interceptors.add(new UserContextInterceptor());
             template.setInterceptors(interceptors);
-        }
+        }*//*
         return template;
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(PhysicalPersonMetaApplication.class, args);

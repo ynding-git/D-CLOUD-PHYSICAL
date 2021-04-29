@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.book.utils;
 
 import org.slf4j.Logger;
@@ -8,9 +9,11 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+*/
 /**
  * @author ynding
- */
+ *//*
+
 @Component
 public class UserContextFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(UserContextFilter.class);
@@ -37,4 +40,4 @@ public class UserContextFilter implements Filter {
 
     @Override
     public void destroy() {}
-}
+}*/

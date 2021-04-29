@@ -19,7 +19,6 @@ import javax.persistence.criteria.Predicate;
  * @author ynding
  */
 @Service
-@Transactional
 public class PersonService {
 
     private final PersonRepository personRepository;

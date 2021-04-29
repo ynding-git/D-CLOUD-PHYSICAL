@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
  * <p>
  * 这样配置了后,所有发往physical-book-meta的请求，
  * 需要验token的时候就会发请求去http://localhost:10401/oauth/check_token验token，获取到token对应的用户信息
+ * 如果不配置也可，就不需要再验证token了，其实token已经再authentication项目中验证过了
  *
  * @author ynding
  * @version 2020/9/9
@@ -24,6 +25,7 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @Configuration
 @EnableWebSecurity
 public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     /**
      * 通过这个Bean，去远程调用认证服务器，验token
      *
@@ -36,7 +38,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
         tokenServices.setClientId("bookService");
         //在认证服务器配置的，订单服务的ClientSecret
         tokenServices.setClientSecret("123456");
-        tokenServices.setCheckTokenEndpointUrl("http://localhost:10401/oauth/check_token");
+        tokenServices.setCheckTokenEndpointUrl("http://localhost:10402/oauth/check_token");
         return tokenServices;
     }
 

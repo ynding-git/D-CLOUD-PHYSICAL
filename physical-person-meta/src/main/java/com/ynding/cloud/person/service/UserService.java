@@ -16,7 +16,6 @@ import java.util.List;
  * @version 2020/1/20
  */
 @Service
-@Transactional
 public class UserService {
 
     private final UserRepository userRepository;

@@ -24,6 +24,7 @@ public class TestConfigController {
 
     @GetMapping("/hello")
     public String getHello(){
+        log.info("hello");
         return hello;
     }
 }

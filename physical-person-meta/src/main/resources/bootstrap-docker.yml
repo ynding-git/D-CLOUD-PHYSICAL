@@ -43,10 +43,10 @@ spring:
         max-active: 300
   data:
     mongodb:
-      uri: mongodb://${MONGODB_USERNAME:root}:${MONGODB_PASSWORD:admin}@${MONGODB_HOST:101.37.202.3}/test?authSource=admin
+      uri: mongodb://${MONGODB_USERNAME:root}:${MONGODB_PASSWORD:admin}@${MONGODB_HOST:localhost}/test?authSource=admin
       port: ${MONGODB_PORT:27017}
 
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/sc_auth?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3307}/sc_auth?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
     username: ${MYSQL_USERNAME:root}
     password: ${MYSQL_PASSWORD:123456}

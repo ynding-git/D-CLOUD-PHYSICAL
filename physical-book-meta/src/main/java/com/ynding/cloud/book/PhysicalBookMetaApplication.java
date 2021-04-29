@@ -1,6 +1,5 @@
 package com.ynding.cloud.book;
 
-import com.ynding.cloud.book.utils.UserContextInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -17,26 +16,29 @@ import javax.persistence.EntityManager;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author Administrator
+ */
 @EnableDiscoveryClient
 @SpringBootApplication
-@EntityScan("com.ynding.cloud.book.entity")
+//@EntityScan("com.ynding.cloud.book.entity")
 @EnableTransactionManagement
-@EnableBinding(Source.class)//绑定消息代理
+@EnableFeignClients
 public class PhysicalBookMetaApplication {
 
-    @LoadBalanced
+    /*@LoadBalanced
     @Bean
     public RestTemplate getRestTemplate() {
         RestTemplate template = new RestTemplate();
-        List interceptors = template.getInterceptors();
+        *//*List interceptors = template.getInterceptors();
         if (interceptors == null) {
             template.setInterceptors(Collections.singletonList(new UserContextInterceptor()));
         } else {
             interceptors.add(new UserContextInterceptor());
             template.setInterceptors(interceptors);
-        }
+        }*//*
         return template;
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(PhysicalBookMetaApplication.class, args);

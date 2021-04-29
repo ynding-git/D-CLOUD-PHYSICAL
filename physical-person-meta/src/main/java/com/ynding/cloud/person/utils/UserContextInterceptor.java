@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.person.utils;
 
 import org.slf4j.Logger;
@@ -23,4 +24,4 @@ public class UserContextInterceptor implements ClientHttpRequestInterceptor {
 
         return execution.execute(request, body);
     }
-}
+}*/

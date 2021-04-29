@@ -15,14 +15,23 @@ import java.util.Map;
 
 /**
  * 调用book服务的接口
+ * @author Administrator
  */
 @FeignClient(value = CloudServiceInfo.PHYSICAL_BOOK_META, fallback = BookClientImpl.class)
 @Component
 public interface BookClient {
 
+    /**
+     * @param params
+     * @return
+     */
     @GetMapping("/book/list")
     ResponseBean findList(@RequestParam Map<String, Object> params);
 
+    /**
+     * @param book
+     * @return
+     */
     @PostMapping("/book/insert")
     ResponseBean saveBook(@RequestBody BookVO book);
 }
