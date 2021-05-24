@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.book.hystrix;
 
 import com.netflix.hystrix.strategy.HystrixPlugins;
@@ -11,10 +12,12 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 
+*/
 /**
  * 配置Hystrix并发策略
  * @author ynding
- */
+ *//*
+
 @Configuration
 public class ThreadLocalConfiguration {
         @Autowired(required = false)
@@ -41,3 +44,4 @@ public class ThreadLocalConfiguration {
             HystrixPlugins.getInstance().registerCommandExecutionHook(commandExecutionHook);
         }
 }
+*/

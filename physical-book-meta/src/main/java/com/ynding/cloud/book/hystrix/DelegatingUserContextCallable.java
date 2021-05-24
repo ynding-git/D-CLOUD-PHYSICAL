@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.book.hystrix;
 
 import com.ynding.cloud.book.utils.UserContext;
@@ -6,9 +7,11 @@ import com.ynding.cloud.book.utils.UserContextHolder;
 import java.util.concurrent.Callable;
 
 
+*/
 /**
  * @author ynding
- */
+ *//*
+
 public final class DelegatingUserContextCallable<V> implements Callable<V> {
     private final Callable<V> delegate;
     private UserContext originalUserContext;
@@ -34,4 +37,4 @@ public final class DelegatingUserContextCallable<V> implements Callable<V> {
                                          UserContext userContext) {
         return new DelegatingUserContextCallable<V>(delegate, userContext);
     }
-}
+}*/

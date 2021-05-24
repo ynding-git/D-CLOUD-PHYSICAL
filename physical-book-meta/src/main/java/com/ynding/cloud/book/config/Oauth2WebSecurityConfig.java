@@ -1,5 +1,6 @@
 package com.ynding.cloud.book.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -26,6 +27,9 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
 @EnableWebSecurity
 public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Value("${token.check.url}")
+    private String checkTokenUrl;
+
     /**
      * 通过这个Bean，去远程调用认证服务器，验token
      *
@@ -38,7 +42,7 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
         tokenServices.setClientId("bookService");
         //在认证服务器配置的，订单服务的ClientSecret
         tokenServices.setClientSecret("123456");
-        tokenServices.setCheckTokenEndpointUrl("http://localhost:10402/oauth/check_token");
+        tokenServices.setCheckTokenEndpointUrl(checkTokenUrl);
         return tokenServices;
     }
 

@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.person.hystrix;
 
 import com.netflix.hystrix.HystrixThreadPoolKey;
@@ -57,3 +58,4 @@ public class ThreadLocalAwareStrategy extends HystrixConcurrencyStrategy {
                 : super.wrapCallable(new DelegatingUserContextCallable<T>(callable, UserContextHolder.getContext()));
     }
 }
+*/

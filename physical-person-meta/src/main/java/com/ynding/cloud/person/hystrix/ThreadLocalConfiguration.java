@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.person.hystrix;
 
 import com.netflix.hystrix.strategy.HystrixPlugins;
@@ -37,3 +38,4 @@ public class ThreadLocalConfiguration {
             HystrixPlugins.getInstance().registerCommandExecutionHook(commandExecutionHook);
         }
 }
+*/

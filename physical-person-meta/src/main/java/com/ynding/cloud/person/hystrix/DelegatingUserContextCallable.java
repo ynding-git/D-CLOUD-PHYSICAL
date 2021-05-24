@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.person.hystrix;
 
 
@@ -33,4 +34,4 @@ public final class DelegatingUserContextCallable<V> implements Callable<V> {
                                          UserContext userContext) {
         return new DelegatingUserContextCallable<V>(delegate, userContext);
     }
-}
+}*/

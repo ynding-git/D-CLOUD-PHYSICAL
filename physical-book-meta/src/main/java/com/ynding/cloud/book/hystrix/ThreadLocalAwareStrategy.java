@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.book.hystrix;
 
 import com.netflix.hystrix.HystrixThreadPoolKey;
@@ -13,10 +14,12 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 
+*/
 /**
  * 自定义 Hystrix 并发策略类
  * @author ynding
- */
+ *//*
+
 public class ThreadLocalAwareStrategy extends HystrixConcurrencyStrategy {
     private HystrixConcurrencyStrategy existingConcurrencyStrategy;
 
@@ -61,3 +64,4 @@ public class ThreadLocalAwareStrategy extends HystrixConcurrencyStrategy {
                 : super.wrapCallable(new DelegatingUserContextCallable<T>(callable, UserContextHolder.getContext()));
     }
 }
+*/
