@@ -91,3 +91,6 @@ logging:
     com.netflix: WARN
     org.springframework.web: WARN
     org.springframework.data.mongodb.core: DEBUG
+
+swagger:
+  enabled: true
