@@ -13,11 +13,6 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.gitee.ynding</groupId>
-            <artifactId>common-model</artifactId>
-            <version>v2.0.1</version>
-        </dependency>
         <!--配置中心客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

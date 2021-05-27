@@ -1,5 +1,6 @@
 package com.ynding.cloud.book;
 
+import com.ynding.cloud.common.annotation.CustomSwaggerConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -24,6 +25,7 @@ import java.util.List;
 //@EntityScan("com.ynding.cloud.book.entity")
 @EnableTransactionManagement
 @EnableFeignClients
+@CustomSwaggerConfig
 public class PhysicalBookMetaApplication {
 
     /*@LoadBalanced

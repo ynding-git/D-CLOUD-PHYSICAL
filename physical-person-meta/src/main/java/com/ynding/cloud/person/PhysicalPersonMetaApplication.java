@@ -1,5 +1,6 @@
 package com.ynding.cloud.person;
 
+import com.ynding.cloud.common.annotation.CustomSwaggerConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -26,6 +27,7 @@ import java.util.List;
 @EnableHystrix
 @EnableMongoAuditing
 @EnableTransactionManagement
+@CustomSwaggerConfig
 //@EntityScan("com.ynding.cloud.person.entity")
 //@EnableMongoRepositories(basePackages="com.ynding.cloud.person.data")
 public class PhysicalPersonMetaApplication {

@@ -1,3 +1,4 @@
+/*
 package com.ynding.cloud.book.config;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +11,7 @@ import org.springframework.security.oauth2.provider.authentication.OAuth2Authent
 import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 import org.springframework.security.oauth2.provider.token.ResourceServerTokenServices;
 
+*/
 /**
  * 怎么验发往本服务的请求头的令牌
  * 1，自定义tokenServices ,说明去哪里去验token
@@ -22,7 +24,8 @@ import org.springframework.security.oauth2.provider.token.ResourceServerTokenSer
  *
  * @author ynding
  * @version 2020/9/9
- **/
+ **//*
+
 @Configuration
 @EnableWebSecurity
 public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -30,11 +33,13 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${token.check.url}")
     private String checkTokenUrl;
 
-    /**
+    */
+/**
      * 通过这个Bean，去远程调用认证服务器，验token
      *
      * @return
-     */
+     *//*
+
     @Bean
     public ResourceServerTokenServices tokenServices() {
         RemoteTokenServices tokenServices = new RemoteTokenServices();
@@ -47,13 +52,15 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-    /**
+    */
+/**
      * 要认证跟用户相关的信息，一般用 AuthenticationManager
      * 覆盖这个方法，可以将AuthenticationManager暴露为一个Bean
      *
      * @return
      * @throws Exception
-     */
+     *//*
+
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -63,3 +70,4 @@ public class Oauth2WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationManager;
     }
 }
+*/

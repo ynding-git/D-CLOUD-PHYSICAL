@@ -48,10 +48,10 @@ public class Oauth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
         /**
          * 进入physical-book-meta的所有请求，哪些要拦截，哪些要放过，在这里配置
          */
-//        http.authorizeRequests()
-//                .antMatchers("/hello")
-//                .permitAll() //放过/haha不拦截
-//                .anyRequest().authenticated();//其余所有请求都拦截
+        http.authorizeRequests()
+                .antMatchers("/h2-console/**",
+                        "/doc.html","/swagger**/**", "/webjars/**", "/v3/**")
+                .permitAll();
 
         log.info("ResourceServerConfig 中配置 HttpSecurity对象执行");
         // 只有/book 端点作为资源服务器的资源
