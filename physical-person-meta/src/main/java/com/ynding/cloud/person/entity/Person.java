@@ -14,7 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Table
+@Table(name = "person")
 @Data
 @Entity
 @ApiModel(value = "Person", description = "人员")

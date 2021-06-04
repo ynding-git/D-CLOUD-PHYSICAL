@@ -3,6 +3,7 @@ package com.ynding.cloud.person.controller;
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
 import com.ynding.cloud.person.clients.BookClient;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +33,7 @@ public class BookController {
 
     @PostMapping("/add/book")
     @ApiOperation(value = "添加书本", produces = "application/json")
+    @GlobalTransactional
     public ResponseBean saveBook(@RequestBody BookVO book) {
 
         return bookClient.saveBook(book);

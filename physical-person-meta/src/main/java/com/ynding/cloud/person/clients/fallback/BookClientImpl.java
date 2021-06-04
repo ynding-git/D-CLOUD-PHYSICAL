@@ -14,7 +14,7 @@ import static com.ynding.cloud.common.model.bo.ResponseCode.BOOK_FEIGN_ERROR;
  * @author dyn
  * @version 2019/12/12
  */
-//@Component
+@Component
 public class BookClientImpl implements BookClient {
 
     @Override

@@ -19,6 +19,19 @@ spring:
     bus:
       trace:
         enabled: true #开启消息跟踪
+  datasource:
+    #初始化数据结构/数据
+    schema: classpath:h2/schema.sql
+    data: classpath:h2/test-data.sql
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
   rabbitmq:
     host: ${RABBIT_MQ_HOST:localhost}
     port: ${RABBIT_MQ_PORT:5672}

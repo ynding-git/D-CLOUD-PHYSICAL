@@ -1,5 +1,7 @@
 package com.ynding.cloud.person;
 
+import com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration;
+import com.ynding.cloud.common.annotation.CustomSeataConfig;
 import com.ynding.cloud.common.annotation.CustomSwaggerConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +11,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.cloud.sleuth.instrument.web.client.feign.TraceFeignClientAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.config.EnableMongoAuditing;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
@@ -21,13 +24,14 @@ import java.util.List;
 /**
  * @author Administrator
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = {SeataFeignClientAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableFeignClients
 @EnableHystrix
 @EnableMongoAuditing
 @EnableTransactionManagement
 @CustomSwaggerConfig
+@CustomSeataConfig
 //@EntityScan("com.ynding.cloud.person.entity")
 //@EnableMongoRepositories(basePackages="com.ynding.cloud.person.data")
 public class PhysicalPersonMetaApplication {
