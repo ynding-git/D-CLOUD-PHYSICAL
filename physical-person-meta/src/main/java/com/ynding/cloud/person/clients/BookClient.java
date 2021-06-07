@@ -17,7 +17,7 @@ import java.util.Map;
  * 调用book服务的接口
  * @author Administrator
  */
-@FeignClient(value = CloudServiceInfo.PHYSICAL_BOOK_META, fallback = BookClientImpl.class)
+@FeignClient(value = CloudServiceInfo.PHYSICAL_BOOK_META,fallback = BookClientImpl.class)
 @Component
 public interface BookClient {
 

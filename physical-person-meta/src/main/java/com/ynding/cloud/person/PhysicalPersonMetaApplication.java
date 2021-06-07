@@ -1,8 +1,8 @@
 package com.ynding.cloud.person;
 
 import com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration;
-import com.ynding.cloud.common.annotation.CustomSeataConfig;
 import com.ynding.cloud.common.annotation.CustomSwaggerConfig;
+import com.ynding.cloud.seata.annotation.CustomSeataConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -27,7 +27,7 @@ import java.util.List;
 @SpringBootApplication(exclude = {SeataFeignClientAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableFeignClients
-@EnableHystrix
+//@EnableHystrix
 @EnableMongoAuditing
 @EnableTransactionManagement
 @CustomSwaggerConfig

@@ -1,15 +1,19 @@
 package com.ynding.cloud.person.config;
 
+import feign.RequestInterceptor;
+import feign.RequestTemplate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.client.OAuth2ClientContext;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 
 /**
  * <p> 资源服务器配置</p>
@@ -33,6 +37,23 @@ public class PersonResourceConfig extends ResourceServerConfigurerAdapter {
     @Bean
     public OAuth2RestTemplate oAuth2RestTemplate(OAuth2ProtectedResourceDetails resource, OAuth2ClientContext context){
         return new OAuth2RestTemplate(resource,context);
+    }
+
+    /**
+     * 使用feign
+     * @return
+     */
+    @Bean
+    public RequestInterceptor requestTokenBearerInterceptor() {
+        return new RequestInterceptor() {
+            @Override
+            public void apply(RequestTemplate requestTemplate) {
+                OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)
+                        SecurityContextHolder.getContext().getAuthentication().getDetails();
+
+                requestTemplate.header("Authorization", "bearer " + details.getTokenValue());
+            }
+        };
     }
 
     /**

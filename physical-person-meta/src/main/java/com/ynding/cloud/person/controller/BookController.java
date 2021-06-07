@@ -33,9 +33,12 @@ public class BookController {
 
     @PostMapping("/add/book")
     @ApiOperation(value = "添加书本", produces = "application/json")
-    @GlobalTransactional
+    @GlobalTransactional(rollbackFor = Exception.class)
     public ResponseBean saveBook(@RequestBody BookVO book) {
+        ResponseBean responseBean = bookClient.saveBook(book);
 
-        return bookClient.saveBook(book);
+        double d = 1/0;
+
+        return ResponseBean.ok();
     }
 }
