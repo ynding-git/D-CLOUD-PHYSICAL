@@ -6,6 +6,7 @@ import com.ynding.cloud.seata.annotation.CustomSeataConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -24,7 +25,7 @@ import java.util.List;
 /**
  * @author Administrator
  */
-@SpringBootApplication(exclude = {SeataFeignClientAutoConfiguration.class})
+@SpringBootApplication(exclude = {SeataFeignClientAutoConfiguration.class, DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableFeignClients
 //@EnableHystrix

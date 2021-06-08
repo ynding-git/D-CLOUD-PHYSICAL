@@ -5,6 +5,6 @@ spring:
   cloud:
     alibaba:
       seata:
-        tx-service-group: tx_group
+        tx-service-group: my_test_tx_group
 
 hello: 111

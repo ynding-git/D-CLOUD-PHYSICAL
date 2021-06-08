@@ -2,6 +2,7 @@ package com.ynding.cloud.person.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
+import io.seata.core.context.RootContext;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +41,7 @@ public class PersonResourceConfig extends ResourceServerConfigurerAdapter {
     }
 
     /**
-     * 使用feign
+     * 使用feign 传递token ,xid
      * @return
      */
     @Bean
@@ -51,7 +52,11 @@ public class PersonResourceConfig extends ResourceServerConfigurerAdapter {
                 OAuth2AuthenticationDetails details = (OAuth2AuthenticationDetails)
                         SecurityContextHolder.getContext().getAuthentication().getDetails();
 
+                // 传递 token
                 requestTemplate.header("Authorization", "bearer " + details.getTokenValue());
+                // 解决seata的xid未传递
+                String xid = RootContext.getXID();
+                requestTemplate.header(RootContext.KEY_XID, xid);
             }
         };
     }
