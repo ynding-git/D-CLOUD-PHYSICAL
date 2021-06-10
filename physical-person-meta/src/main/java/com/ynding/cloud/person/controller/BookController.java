@@ -2,10 +2,11 @@ package com.ynding.cloud.person.controller;
 
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
-import com.ynding.cloud.person.clients.BookClient;
+import com.ynding.cloud.physical.api.client.book.BookClient;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -16,6 +17,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("person")
+@ComponentScan(basePackages = "com.ynding.cloud.physical.api.client.book")
 @Api(value = "BookController",tags = "book")
 public class BookController {
 

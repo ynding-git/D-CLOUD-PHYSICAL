@@ -1,8 +1,8 @@
-package com.ynding.cloud.person.clients.fallback;
+package com.ynding.cloud.physical.api.client.book.fallback;
 
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
-import com.ynding.cloud.person.clients.BookClient;
+import com.ynding.cloud.physical.api.client.book.BookClient;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;

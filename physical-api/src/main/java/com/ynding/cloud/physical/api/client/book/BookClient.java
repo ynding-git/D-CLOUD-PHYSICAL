@@ -1,9 +1,9 @@
-package com.ynding.cloud.person.clients;
+package com.ynding.cloud.physical.api.client.book;
 
 import com.ynding.cloud.common.model.bo.CloudServiceInfo;
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
-import com.ynding.cloud.person.clients.fallback.BookClientImpl;
+import com.ynding.cloud.physical.api.client.book.fallback.BookClientImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
