@@ -4,6 +4,7 @@ import com.ynding.cloud.common.model.bo.CloudServiceInfo;
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
 import com.ynding.cloud.physical.api.client.book.fallback.BookClientImpl;
+import com.ynding.cloud.physical.api.model.query.BookQuery;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public interface BookClient {
      * @return
      */
     @GetMapping("/book/list")
-    ResponseBean findList(@RequestParam Map<String, Object> params);
+    ResponseBean findList(BookQuery params);
 
     /**
      * @param book

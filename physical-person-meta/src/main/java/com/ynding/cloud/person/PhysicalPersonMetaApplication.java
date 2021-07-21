@@ -27,7 +27,7 @@ import java.util.List;
  */
 @SpringBootApplication(exclude = {SeataFeignClientAutoConfiguration.class, DataSourceAutoConfiguration.class})
 @EnableDiscoveryClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.ynding.cloud.physical.api.client.book")
 //@EnableHystrix
 @EnableMongoAuditing
 @EnableTransactionManagement

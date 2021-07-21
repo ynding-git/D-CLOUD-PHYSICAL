@@ -3,9 +3,8 @@ package com.ynding.cloud.physical.api.client.book.fallback;
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
 import com.ynding.cloud.physical.api.client.book.BookClient;
+import com.ynding.cloud.physical.api.model.query.BookQuery;
 import org.springframework.stereotype.Component;
-
-import java.util.Map;
 
 import static com.ynding.cloud.common.model.bo.ResponseCode.BOOK_FEIGN_ERROR;
 
@@ -18,7 +17,7 @@ import static com.ynding.cloud.common.model.bo.ResponseCode.BOOK_FEIGN_ERROR;
 public class BookClientImpl implements BookClient {
 
     @Override
-    public ResponseBean findList(Map<String, Object> params) {
+    public ResponseBean findList(BookQuery params) {
         return ResponseBean.fail(BOOK_FEIGN_ERROR);
     }
 

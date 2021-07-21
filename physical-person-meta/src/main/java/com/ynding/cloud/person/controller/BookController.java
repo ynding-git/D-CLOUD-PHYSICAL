@@ -3,6 +3,7 @@ package com.ynding.cloud.person.controller;
 import com.ynding.cloud.common.model.bo.ResponseBean;
 import com.ynding.cloud.common.model.vo.BookVO;
 import com.ynding.cloud.physical.api.client.book.BookClient;
+import com.ynding.cloud.physical.api.model.query.BookQuery;
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,7 +29,7 @@ public class BookController {
 
     @GetMapping("/get/book")
     @ApiOperation(value = "查询书本", produces = "application/json")
-    public ResponseBean getBooks(@RequestParam Map<String, Object> params) {
+    public ResponseBean getBooks(BookQuery params) {
 
         return bookClient.findList(params);
     }
